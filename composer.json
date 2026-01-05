@@ -1,0 +1,30 @@
+{
+  "name": "for4izen/laravel-email-blacklist",
+  "description": "Block blacklisted or disposable emails in Laravel",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "For4izen\\LaravelEmailBlacklist\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "For4izen",
+      "email": "for4izen@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.4",
+    "illuminate/support": "^10|^11|^12"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "For4izen\\LaravelEmailBlacklist\\Providers\\EmailBlacklistServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}

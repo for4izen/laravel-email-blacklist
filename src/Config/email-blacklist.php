@@ -1,0 +1,11 @@
+<?php
+
+return [
+    'domains' => [
+        'mailinator.com',
+        'tempmail.com',
+        '10minutemail.com',
+        'guerrillamail.com',
+        'yopmail.com',
+    ],
+];
