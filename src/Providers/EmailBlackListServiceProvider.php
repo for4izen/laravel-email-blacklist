@@ -1,23 +1,23 @@
 <?php
 
-namespace For4izen\EmailBlackList\Providers;
+namespace For4izen\LaravelEmailBlacklist\Providers;
 
+use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use For4izen\LaravelEmailBlacklist\Rules\EmailNotBlacklisted;
-use Illuminate\Support\ServiceProvider;
 
-class EmailBlackListServiceProvider extends ServiceProvider
+class EmailBlacklistServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Validator::extend('email_blacklist', fn($attribute, $value) => (new EmailNotBlacklisted())->passes($attribute, $value));
-
-        Validator::replacer('email_blacklist', function ($message) {
-            return 'Este email não é permitido.';
-        });
-
+        // Publica o config
         $this->publishes([
             __DIR__ . '/../Config/email-blacklist.php' => config_path('email-blacklist.php'),
         ], 'email-blacklist');
+
+        // Registra a rule no validator
+        Validator::extend('email_not_blacklisted', function ($attribute, $value) {
+            return (new EmailNotBlacklisted())->passes($attribute, $value);
+        });
     }
 }
