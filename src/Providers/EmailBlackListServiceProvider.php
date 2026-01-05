@@ -4,6 +4,7 @@ namespace For4izen\EmailBlackList\Providers;
 
 use Illuminate\Support\Facades\Validator;
 use For4izen\LaravelEmailBlacklist\Rules\EmailNotBlacklisted;
+use Illuminate\Support\ServiceProvider;
 
 class EmailBlackListServiceProvider extends ServiceProvider
 {
